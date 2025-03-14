@@ -67,11 +67,12 @@
 \- Vérification du bon fonctionnement en ligne.
 
 - Documentation finale sur GitHub
+##
 \- Compléter README.md avec :
 \- Procédure d'installation claire.
 \- Présentation rapide du projet.
 
-## 3.3 Gestion des Utilisateurs
+### 3.3 Gestion des Utilisateurs
 \- Inscrire de nouveaux utilisateurs et gérer leurs profils.  
 \- Autoriser les utilisateurs à emprunter et à rendre des livres et des DVDs/CDs.  
 \- Gérer les rôles et les autorisations des utilisateurs (administrateurs, bibliothécaires, utilisateurs réguliers).
