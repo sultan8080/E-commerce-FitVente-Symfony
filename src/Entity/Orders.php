@@ -25,8 +25,8 @@ class Orders
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $totalAmount = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $shippingAddress = null;
+    #[ORM\Column(type: Types::TEXT, nullable: false)]
+    private ?string $shippingAddress;
 
     #[ORM\ManyToOne(inversedBy: 'orders')]
     #[ORM\JoinColumn(nullable: false)]
@@ -35,8 +35,10 @@ class Orders
     /**
      * @var Collection<int, OrderItem>
      */
-    #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: 'orders')]
+ 
+    #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: 'orders', cascade: ["persist", "remove"], orphanRemoval: true)]
     private Collection $orderItems;
+
 
     public function __construct()
     {
