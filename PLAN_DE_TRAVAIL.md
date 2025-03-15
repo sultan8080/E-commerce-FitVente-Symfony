@@ -1,7 +1,7 @@
 # Plan de Travail - Projet FitVente
 ## SPRINT 1: Initialisation et Configuration (Jour 1)
 
-### a. nstallation du projet Symfony
+### a. Installation du projet Symfony
 
 - Installer Symfony via composer.
 - Initialiser Git localement et connecter à GitHub.

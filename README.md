@@ -1,4 +1,4 @@
-# Cahier des Charges - Project FitVente
+# Cahier des Charges - Projet FitVente
 ## Présentation du projet
 FitVente est un site e-commerce destiné à la vente d'équipements et de produits liés au fitness, inspiré du site web PowerMax Fitness. Le site sera développé en Symfony, utilisant PHP, MySQL, JavaScript, Twig, Bootstrap et Git pour le suivi et le déploiement. La gestion du projet sera assurée via la méthodologie Agile Scrum à l'aide de Jira pour le suivi quotidien des tâches et leur avancement.
 
