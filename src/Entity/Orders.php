@@ -28,9 +28,10 @@ class Orders
     #[ORM\Column(type: Types::TEXT, nullable: false)]
     private ?string $shippingAddress;
 
-    #[ORM\ManyToOne(inversedBy: 'orders')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'orders')]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private ?User $user = null;
+    
 
     /**
      * @var Collection<int, OrderItem>

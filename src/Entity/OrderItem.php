@@ -23,14 +23,16 @@ class OrderItem
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $totalPrice = null;
 
-    #[ORM\ManyToOne(inversedBy: 'orderItems')]
-    #[ORM\JoinColumn(nullable: false)]
+  
+    #[ORM\ManyToOne(targetEntity: Orders::class, inversedBy: 'orderItems')]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private ?Orders $orders = null;
 
-    #[ORM\ManyToOne(inversedBy: 'orderItems')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Product $product = null;
 
+    #[ORM\ManyToOne(targetEntity: Product::class, inversedBy: 'orderItems')]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
+    private ?Product $product = null;
+    
     public function getId(): ?int
     {
         return $this->id;
