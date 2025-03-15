@@ -68,3 +68,8 @@ FitVente est un site e-commerce destiné à la vente d'équipements et de produi
 - Jour 5 : Développement du processus de commande.
 - Jour 6 : Développement du back-office d'administration.
 - Jour 7 : Tests finaux, corrections et mise en ligne (déploiement)
+
+
+# MCD-MLD FitVente
+
+![Alt text](MCD_MLD/MCD-MLD.png)
