@@ -7,6 +7,7 @@ use App\Entity\Cart;
 use App\Entity\User;
 use App\Entity\Orders;
 use App\Entity\Product;
+use App\Entity\CartItem;
 use App\Entity\Category;
 use App\Entity\OrderItem;
 use Doctrine\Persistence\ObjectManager;
@@ -108,6 +109,14 @@ class AppFixtures extends Fixture
             $carts[] = $cart;
         }
 
+        // Create Cart Items
+        for ($i = 0; $i < 5; $i++) {
+            $cartItem = new CartItem();
+            $cartItem->setCart($carts[array_rand($carts)]);
+            $cartItem->setProduct($products[array_rand($products)]);
+            $cartItem->setQuantity($faker->numberBetween(1, 5));
+            $manager->persist($cartItem);
+        }
 
         $manager->flush();
     }
