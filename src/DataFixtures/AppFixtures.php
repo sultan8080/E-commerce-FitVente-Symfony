@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Entity\Orders;
 use App\Entity\Product;
 use App\Entity\Category;
+use App\Entity\OrderItem;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -74,18 +75,28 @@ class AppFixtures extends Fixture
             $products[] = $product;
         }
 
-           // Create Orders
-           $orders = [];
-           for ($i = 0; $i < 5; $i++) {
-               $order = new Orders();
-               $order->setUser($users[array_rand($users)]);
-               $order->setOrderDate(new \DateTimeImmutable());
-               $order->setStatus($faker->randomElement(["Pending", "Paid", "Shipped", "Delivered", "Cancelled"]));
-               $order->setTotalAmount($faker->randomFloat(2, 50, 2000));
-               $order->setShippingAddress($faker->address);
-               $manager->persist($order);
-               $orders[] = $order;         }
-
+        // Create Orders
+        $orders = [];
+        for ($i = 0; $i < 5; $i++) {
+            $order = new Orders();
+            $order->setUser($users[array_rand($users)]);
+            $order->setOrderDate(new \DateTimeImmutable());
+            $order->setStatus($faker->randomElement(["Pending", "Paid", "Shipped", "Delivered", "Cancelled"]));
+            $order->setTotalAmount($faker->randomFloat(2, 50, 2000));
+            $order->setShippingAddress($faker->address);
+            $manager->persist($order);
+            $orders[] = $order;
+        }
+                    // Create Order Items
+        for ($i = 0; $i < 5; $i++) {
+            $orderItem = new OrderItem();
+            $orderItem->setOrders($orders[array_rand($orders)]);
+            $orderItem->setProduct($products[array_rand($products)]);
+            $orderItem->setQuantity($faker->numberBetween(1, 5));
+            $orderItem->setUnitPrice($faker->randomFloat(2, 10, 500));
+            $orderItem->setTotalPrice($faker->randomFloat(2, 10, 1000));
+            $manager->persist($orderItem);
+        }
 
         $manager->flush();
     }
