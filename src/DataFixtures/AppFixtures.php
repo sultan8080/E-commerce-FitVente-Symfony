@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use Faker\Factory;
+use App\Entity\Cart;
 use App\Entity\User;
 use App\Entity\Orders;
 use App\Entity\Product;
@@ -97,6 +98,16 @@ class AppFixtures extends Fixture
             $orderItem->setTotalPrice($faker->randomFloat(2, 10, 1000));
             $manager->persist($orderItem);
         }
+        // Create Carts
+        $carts = [];
+        for ($i = 0; $i < 5; $i++) {
+            $cart = new Cart();
+            $cart->setUser($users[array_rand($users)]);
+            $cart->setCreatedAt(new \DateTimeImmutable());
+            $manager->persist($cart);
+            $carts[] = $cart;
+        }
+
 
         $manager->flush();
     }
