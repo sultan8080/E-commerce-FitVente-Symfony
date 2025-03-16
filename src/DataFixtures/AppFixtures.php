@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use Faker\Factory;
 use App\Entity\User;
 use App\Entity\Category;
+use App\Entity\Product;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -56,6 +57,25 @@ class AppFixtures extends Fixture
              $categories[] = $category;
          }
          
+        // Create Products
+        $products = [];
+        for ($i = 0; $i < 20; $i++) {
+            $product = new Product();
+            $product->setName($faker->word);
+            $product->setDescription($faker->paragraph());
+            $product->setPrice($faker->randomFloat(2, 10, 1000));
+            $product->setStock($faker->numberBetween(1, 50));
+            $product->setCategory($categories[array_rand($categories)]);
+            $product->setCreatedAt(new \DateTimeImmutable());
+            $product->setImage($faker->imageUrl(640, 480, 'products'));
+            $manager->persist($product);
+            $product->setIsAvailable($faker->boolean);
+            $products[] = $product;
+        }
+
+
+
+
         $manager->flush();
     }
 }
