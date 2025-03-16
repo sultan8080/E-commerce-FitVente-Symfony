@@ -4,8 +4,9 @@ namespace App\DataFixtures;
 
 use Faker\Factory;
 use App\Entity\User;
-use App\Entity\Category;
+use App\Entity\Orders;
 use App\Entity\Product;
+use App\Entity\Category;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -73,7 +74,17 @@ class AppFixtures extends Fixture
             $products[] = $product;
         }
 
-
+           // Create Orders
+           $orders = [];
+           for ($i = 0; $i < 5; $i++) {
+               $order = new Orders();
+               $order->setUser($users[array_rand($users)]);
+               $order->setOrderDate(new \DateTimeImmutable());
+               $order->setStatus($faker->randomElement(["Pending", "Paid", "Shipped", "Delivered", "Cancelled"]));
+               $order->setTotalAmount($faker->randomFloat(2, 50, 2000));
+               $order->setShippingAddress($faker->address);
+               $manager->persist($order);
+               $orders[] = $order;         }
 
 
         $manager->flush();
