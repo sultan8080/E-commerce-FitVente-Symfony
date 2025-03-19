@@ -1,4 +1,8 @@
-import './bootstrap.js';
+// import './bootstrap.js';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Load Bootstrap CSS
+import 'bootstrap'; // Load Bootstrap JavaScript
+import '@popperjs/core'; // Required for tooltips, popovers, dropdowns
+
 /*
  * Welcome to your app's main JavaScript file!
  *
