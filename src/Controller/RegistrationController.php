@@ -30,6 +30,8 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $user->setRoles(['ROLE_USER']);
             /** @var string $plainPassword */
             $plainPassword = $form->get('plainPassword')->getData();
 
@@ -44,7 +46,7 @@ class RegistrationController extends AbstractController
                 (new TemplatedEmail())
                     ->from(new Address('mailer@fitVente.fr', 'Fit Vente'))
                     ->to((string) $user->getEmail())
-                    ->subject('Please Confirm your Email')
+                    ->subject('Veuillez confirmer votre email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
 
