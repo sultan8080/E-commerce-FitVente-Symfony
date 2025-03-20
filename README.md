@@ -3,7 +3,7 @@
 FitVente est un site e-commerce destiné à la vente d'équipements et de produits liés au fitness, inspiré du site web PowerMax Fitness. Le site sera développé en Symfony, utilisant PHP, MySQL, JavaScript, Twig, Bootstrap et Git pour le suivi et le déploiement. La gestion du projet sera assurée via la méthodologie Agile Scrum à l'aide de Jira pour le suivi quotidien des tâches et leur avancement.
 
 ## Objectifs du Projet
-- Développer un site fonctionnel en 7 jours.
+- Développer un site fonctionnel.
 - Réviser et démontrer les compétences techniques pour une recherche d'emploi.
 - Offrir une expérience utilisateur claire et efficace.
 
@@ -60,14 +60,14 @@ FitVente est un site e-commerce destiné à la vente d'équipements et de produi
 - Versioning et gestion : Git, GitHub.
 - Organisation des tâches : Jira.
 
-## Planning indicatif sur 7 jours
-- Jour 1 : Installation de l'environnement et mise en place du projet Symfony.
-- Jour 2 : Création du catalogue et intégration du template (Bootstrap).
-- Jour 3 : Développement des pages produits et du système de filtrage.
-- Jour 4 : Implémentation du panier d'achat et gestion utilisateur.
-- Jour 5 : Développement du processus de commande.
-- Jour 6 : Développement du back-office d'administration.
-- Jour 7 : Tests finaux, corrections et mise en ligne (déploiement)
+## Planning indicatif 
+- Tâche 1 : Installation de l'environnement et mise en place du projet Symfony.
+- Tâche 2 : Création du catalogue et intégration du template (Bootstrap).
+- Tâche 3 : Développement des pages produits et du système de filtrage.
+- Tâche 4 : Implémentation du panier d'achat et gestion utilisateur.
+- Tâche 5 : Développement du processus de commande.
+- Tâche 6 : Développement du back-office d'administration.
+- Tâche 7 : Tests finaux, corrections et mise en ligne (déploiement)
 
 
 # MCD-MLD FitVente
